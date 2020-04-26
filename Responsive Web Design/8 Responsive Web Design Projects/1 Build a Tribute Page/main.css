@@ -1,0 +1,123 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.jackson {
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Michael-Jackson-Wallpaper-HD.jpg"); /* https://drive.google.com/open?id=0B7Iy_mpiidp_QmczZFd6X0tVVkU */
+  background-size: cover;
+  min-height: 100%;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.jackson #header {
+  font-family: "Chela One", cursive;
+  font-weight: bold;
+  float: right;
+  color: rgb(121, 115, 115);
+  text-align: center;
+  margin-right: 120px;
+  margin-top: 150px;
+}
+
+.jackson .m-quote {
+  float: right;
+  width: 55%;
+  margin-right: 80px;
+  color: white;
+}
+
+.jackson .m-quote #quote {
+  text-align: center;
+  background-color: #f9a300;
+  display: inline;
+  line-height: 35px;
+  font-weight: bold;
+  font-family: "Aubrey", cursive;
+}
+
+.jackson .m-quote #name {
+  text-align: right;
+  color: white;
+  font-size: 48px;
+  font-family: "Mr Bedfort", cursive;
+}
+
+@media only screen and (max-width: 560px) {
+  .jackson h1,
+  .jackson div {
+    display: none;
+  }
+
+  .jackson {
+    min-height: 200px;
+  }
+} /* max-width 600 px */
+
+.container {
+  text-align: center;
+  background-color: #ffdaa8;
+  margin: 0px;
+  width: 100%;
+  color: black;
+  font-family: "Aubrey", cursive;
+}
+
+#title {
+  font-family: "Aubrey", cursive;
+  color: #553101;
+}
+
+#description {
+  color: #553101;
+  font-weight: bold;
+}
+
+#img-div {
+  display: none;
+}
+
+#image {
+  display: block;
+  max-width: 200px;
+  height: auto;
+  margin: auto;
+}
+
+#content {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 17px;
+  font-family: Grotzec-Black;
+  font-size: 1.25em;
+}
+
+#content a {
+  font-family: "Aubrey", cursive;
+  text-decoration: underline;
+}
+
+span {
+  font-family: "Aubrey", cursive;
+}
+
+#footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  height: 50px;
+  margin-top: 0px;
+  font-family: "Aubrey", cursive;
+}
+
+#footer h4 {
+  margin: 0;
+  padding-top: 18px;
+}
