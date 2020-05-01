@@ -1,2 +1,0 @@
-var myFirstName = "Saisambasivarao"
-var myLastName = "Bairaboina"
