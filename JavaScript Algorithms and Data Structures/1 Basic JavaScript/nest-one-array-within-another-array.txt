@@ -1,2 +1,0 @@
-// Only change code below this line
-var myArray = [["Manoj",3013],["Samba",3030]];
