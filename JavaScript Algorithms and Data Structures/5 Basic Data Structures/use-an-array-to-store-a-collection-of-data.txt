@@ -1,0 +1,2 @@
+let yourArray = ["samba",3,true,undefined,null]; // Change this line
+yourArray.length;
