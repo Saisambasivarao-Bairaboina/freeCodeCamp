@@ -1,0 +1,154 @@
+//function which swaps elements in array, using ES6 syntax
+function swap(arr, i, j) {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+}
+
+class PriorityQueue {
+  constructor() {
+    //initializing queue
+    this.collection = [];
+  }
+
+  printCollection() {
+    console.log(this.collection);
+  }
+
+  //enqueues the node to the queue
+  enqueue(node) {
+    this.collection.push(node);
+    //calling the helper method which bubbles up the node to the correct position
+    this.bubbleUp();
+  }
+
+  //helper method which bubbles the node to its correct position
+  bubbleUp() {
+    let i = this.size() - 1;
+    let node = this.collection[i];
+
+    while (true) {
+      //getting the parent node's index
+      let parent = Math.floor((i - 1) / 2);
+      if (parent < 0) return;
+
+      //comparing with parent, if the node is smaller then swapping
+      if (this.collection[parent][1] > node[1]) {
+        swap(this.collection, parent, i);
+        i = parent;
+      } else break;
+    }
+  }
+
+  //dequeues the node and returns its value
+  dequeue() {
+    if (this.isEmpty()) return;
+    if (this.size() === 1) {
+      return this.collection.pop()[0];
+    }
+    //getting the first element from the queue
+    let pop = this.collection[0];
+
+    //replacing the first element by last
+    this.collection[0] = this.collection.pop();
+
+    //calling the buubleDown method which bubbles down the node to the correct position
+    this.bubbleDown();
+    return pop[0];
+  }
+
+  //helper method which bubble's down the node to the correct position
+  bubbleDown() {
+    let node = this.collection[0];
+    let i = 0;
+
+    while (true) {
+      //getting the two child node's index
+      let child1 = 2 * i + 1;
+      let child2 = 2 * i + 2;
+
+      //edge case
+      if (child2 >= this.size()) return;
+
+      //getting the minimum of two child
+      let min =
+        this.collection[child1][1] > this.collection[child2][1]
+          ? child2
+          : child1;
+
+      //if the child is smaller than node then swap
+      if (this.collection[min][1] < node[1]) {
+        swap(this.collection, i, min);
+        i = min;
+      } else break;
+    }
+  }
+
+  //returns the first element from queue
+  front() {
+    return this.collection[0];
+  }
+
+  // returns the size of the queue
+  size() {
+    return this.collection.length;
+  }
+
+  // returns if the queue is empty
+  isEmpty() {
+    return this.size() === 0;
+  }
+}
+
+
+
+/**
+ * class PriorityQueue {
+  //this is an unsorted PriorityQueue
+  //O(1) to insert elements
+  //O(n) to pop elements because it searches for the priority
+  //O(1) to see if it is empty because it just looks at the value of length
+  //create a constructor with default parameters
+  
+  constructor() {
+    this.collection = [];
+  }
+
+  printCollection() {
+    console.log(this.collection);
+  }
+  
+  enqueue(element) {
+    return this.collection.push(element)
+  }
+
+  //this is a helper function to tell us what value is next to be popped
+  findPriority() {
+
+    var values = this.collection.map(function(keys) {
+      return keys[1];
+    });
+    var thePriority = Math.min.apply(null, values)
+    return this.collection.find(element => element[1] == thePriority)
+
+  }
+
+  dequeue() {
+    //set the item to be removed to the first priority found
+    let removeItem = this.findPriority()
+    //get the position of where it was so it can be spliced off
+    let removePosition = this.collection.indexOf(removeItem);
+    this.collection.splice(removePosition, 1)
+    //return only the item exclued the level of priority
+    return removeItem[0]
+
+  }
+  // get the size by just return the length O(1) time 
+  size() {
+    return this.collection.length
+  }
+
+  // returns if the queue is empty
+  isEmpty() {
+    return this.size() === 0;
+  }
+}
+ */
