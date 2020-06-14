@@ -1,0 +1,49 @@
+
+class Set {
+constructor() {
+// collection will hold our set
+this.collection = [ ];
+}
+// this method will check for the presence of an element and return true or false
+has(element) {
+    return this.collection.indexOf(element) !== -1;
+}
+// this method will return all the values in the set
+values() {
+    return this.collection;
+}
+// change code below this line
+
+// write your add method here
+add(el){
+    if(!this.has(el)){
+        this.collection.push(el);
+        return true;
+    }else{
+        return false;
+    }
+}
+// write your remove method here
+remove(el){
+    if(this.collection.indexOf(el) !== -1){
+        this.collection.splice(this.collection.indexOf(el),1);
+        return "succesfully removed"
+    }
+    return "no such item in collection"
+}
+// write your size method here
+size(e){
+    return this.collection.length
+}
+// change code above this line
+}
+
+var c = new Set;
+c.add(7);
+c.add(4);
+c.add(7);
+c.add(8);
+console.log(c.values());
+console.log(c.size());
+console.log(c.remove(7));
+console.log(c.values());
