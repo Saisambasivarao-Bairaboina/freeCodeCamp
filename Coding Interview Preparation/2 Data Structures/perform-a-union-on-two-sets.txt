@@ -1,0 +1,93 @@
+function Set() {
+    var collection = [];
+
+    this.has = function(element) {
+        return (collection.indexOf(element) !== -1);
+    };
+
+    this.values = function() {
+        return collection;
+    };
+
+    this.add = function(element) {
+        if(!this.has(element)){
+            collection.push(element);
+            return true;
+        }
+        return false;
+    };
+
+    this.remove = function(element) {
+        if(this.has(element)){
+           var index = collection.indexOf(element);
+            collection.splice(index,1);
+            return true;
+        }
+        return false;
+    };
+
+    this.size = function() {
+        return collection.length;
+    };
+
+    this.union = function(anotherSet){
+        const newSet = new Set();
+        const addToSet = el => newSet.add(el);
+        this.values().forEach(addToSet);
+        anotherSet.values().forEach(addToSet);
+        return newSet;
+    };
+}
+
+/**
+ * class Set {
+  constructor() {
+    this.dictionary = {};
+    this.length = 0;
+  }
+
+  has(element) {
+    return this.dictionary[element] !== undefined;
+  }
+
+  values() {
+    return Object.keys(this.dictionary);
+  }
+
+  add(element) {
+    if (!this.has(element)) {
+      this.dictionary[element] = true;
+      this.length++;
+      return true;
+    }
+
+    return false;
+  }
+
+  remove(element) {
+    if (this.has(element)) {
+      delete this.dictionary[element];
+      this.length--;
+      return true;
+    }
+
+    return false;
+  }
+
+  size() {
+    return this.length;
+  }
+
+  union(set) {
+    const newSet = new Set();
+    this.values().forEach(value => {
+      newSet.add(value);
+    })
+    set.values().forEach(value => {
+      newSet.add(value);
+    })
+
+    return newSet;
+  }
+}
+ */
